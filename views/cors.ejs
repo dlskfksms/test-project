@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <!--meta tag  -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/stylesheets/common.css" />
+    <title>CORS Test Project</title>
+</head>
+<body>
+    <button id="navigateButton" style="width: 200px; height: 100px;">Go to Page</button>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script>
+        // 페이지 이동 스크립트
+        document.getElementById('navigateButton').addEventListener('click', function() {
+            // window.location.href = 'https://www.nurscape.net/promo/HospitalkEvent';
+
+            $.ajax({
+			type: "POST",
+            url: '/test',
+			dataType:'json',
+			data: null,
+			success: function (res) {
+                alert('성공');
+			},
+            error: function (request, status, error) {
+                alert('실패');
+			}
+		});
+        });
+    </script>
+</body>
+</html>
